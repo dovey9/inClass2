@@ -1,0 +1,90 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+C#, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+int main()
+{
+    printf("Hello World\n");
+    float image[5][5][3];
+    int x, y, count;
+    float *test;
+    float *test2;
+    float *test3;
+    float temp, temp2, temp3;
+    float meanTotal;
+    
+    // Don’t change this srand() line! srand(0);
+    for(y = 0; y < 5; y++) {
+        for(x = 0; x < 5; x++) {
+            image[x][y][0] = (float)rand()/(float)INT_MAX;
+            image[x][y][1] = (float)rand()/(float)INT_MAX;
+            image[x][y][2] = (float)rand()/(float)INT_MAX;
+            
+        }
+        
+    }
+    // ---------------------------------------
+    // Write your code below this comment block 
+    // ---------------------------------------
+    
+    for(count=0; count < 3; count++){
+        for(y=0; y < 5; y++) {
+            for(x=0; x < 5; x++) {
+                test = &image[x];
+                test2 = &image[y];
+                test3 = &image[count];
+                
+                temp = *test;
+                temp2 = *test2;
+                temp3 = *test3;
+                meanTotal = ((*test) + (*test2) + (*test3))/3.0;
+                //printf("%d %d: %f - %f - %f\n", x, y, *test, *test2, *test3);
+                *test = meanTotal;
+                *test2 = meanTotal;
+                *test3 = meanTotal;
+                
+                printf("%d %d: %f - %f - %f\n", x, y, *test, *test2, *test3);
+                *test = temp;
+                *test2 = temp2;
+                *test3 = temp3;
+                meanTotal = 0;
+            }
+        }
+    }
+
+    return 0;
+    /*
+
+#include <stdio.h>
+
+int main()
+{
+    //int numm = 78;
+    //int *test;
+    //test = &numm;
+    
+    
+    //printf("%d", *test);
+    //printf("\nHello World");
+    
+    char sent[20] = "HELLO";
+    char *test;
+    test = &sent[2];
+    
+    printf("%c", *test);
+    
+    
+    //printf("%x", &numm)
+    return 0;
+}
+
+    */
+    
+}
